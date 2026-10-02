@@ -1,0 +1,38 @@
+{
+  "products": [
+    {
+      "name": "手机",
+      "price": 1899,
+      "status": "active",
+      "id": "1"
+    },
+    {
+      "id": "2",
+      "name": "电脑",
+      "price": 5999,
+      "status": "active"
+    },
+    {
+      "id": "3",
+      "name": "耳机",
+      "price": 299,
+      "status": "inactive"
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "productId": "1",
+      "count": 2,
+      "status": "pending",
+      "amount": 3998
+    }
+  ],
+  "cart": [],
+  "user": {
+    "id": "1",
+    "name": "张三",
+    "role": "admin"
+  },
+  "$schema": "./node_modules/json-server/schema.json"
+}
