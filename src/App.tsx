@@ -18,6 +18,7 @@ function App() {
         console.log('Mock data fetched:', result)
         setData(result)
       } catch (error) {
+        setData(null)
         console.error('Error fetching mock data:', error)
       }
     }
@@ -34,7 +35,7 @@ function App() {
       </div>
       <div className='mock-data'>
         <h2>获取 Mock 数据</h2>
-        {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>Loading...</p>}
+        {data === null ? <p>没有数据</p> : <pre>{JSON.stringify(data, null, 2)}</pre>}
       </div>
     </>
   )
