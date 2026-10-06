@@ -27,5 +27,9 @@ export default defineConfig(({ mode }) => {
       // 自动打开浏览器
       open: true,
     },
+    build: {
+      outDir: 'dist',
+      sourcemap: mode !== 'production',
+    },
   }
 })
