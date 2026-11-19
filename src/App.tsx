@@ -3,6 +3,8 @@ import heroImg from '@/assets/hero.png'
 import reactLogo from '@/assets/react.svg'
 import viteLogo from '@/assets/vite.svg'
 import './App.css'
+import { RouterProvider } from 'react-router/dom'
+import { router } from './router'
 
 function App() {
   const [data, setData] = useState(null)
@@ -37,6 +39,7 @@ function App() {
         <h2>获取 Mock 数据</h2>
         {data === null ? <p>没有数据</p> : <pre>{JSON.stringify(data, null, 2)}</pre>}
       </div>
+      <RouterProvider router={router} />
     </>
   )
 }
