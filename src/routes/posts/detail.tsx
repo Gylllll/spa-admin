@@ -1,8 +1,8 @@
 import { Link, useLoaderData } from 'react-router'
-import { type Post } from '@/mocks/db'
+import type { Post } from '@/types/post'
 
-// ---------- 详情页：发布成功后跳转到这里 ----------
-export default function PostDetail() {
+// 发布成功后跳转到这里
+export default function PostDetailPage() {
   const { post } = useLoaderData() as { post: Post }
 
   return (

@@ -1,12 +1,6 @@
-// 模拟数据库
-export type Post = {
-  id: string
-  title: string
-  content: string
-  likes: number
-  likedByMe: boolean
-}
+import type { Post } from '@/types/post'
 
+// 内存假后端：仅用于本地开发/演示，换成真实接口时只需改 src/api
 let posts: Post[] = [
   {
     id: '1',

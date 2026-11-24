@@ -1,8 +1,7 @@
 import { createBrowserRouter, Navigate } from 'react-router'
-import PostsPage from '@/routes/posts'
-import { loader as postsLoader, action as postsAction } from '@/routes/posts.api'
-import PostDetail from '@/routes/post-detail'
-import { loader as postLoader } from '@/routes/post-detail.api'
+import PostsPage from '@/routes/posts/list'
+import PostDetailPage from '@/routes/posts/detail'
+import { postsAction, postsLoader, postDetailLoader } from '@/routes/posts/route'
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +16,7 @@ export const router = createBrowserRouter([
   },
   {
     path: '/posts/:id',
-    element: <PostDetail />,
-    loader: postLoader,
+    element: <PostDetailPage />,
+    loader: postDetailLoader,
   },
 ])

@@ -1,48 +1,8 @@
-import { Form, Link, useFetcher, useLoaderData, useNavigation } from 'react-router'
-import { type Post } from '@/mocks/db'
+import { Link, useFetcher } from 'react-router'
+import type { Post } from '@/types/post'
 
-// ---------- 列表页面 ----------
-export default function PostsPage() {
-  const { posts } = useLoaderData() as { posts: Post[] }
-
-  return (
-    <div style={{ maxWidth: 720, margin: '0 auto', padding: 24 }}>
-      <h1>文章列表</h1>
-      {/* 新建文章表单 */}
-      <NewPostForm />
-      {/* 文章列表 */}
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {posts.map((post) => (
-          <PostRow key={post.id} post={post} />
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-// ---------- 用 <Form>：发布后跳转 ----------
-function NewPostForm() {
-  const navigation = useNavigation()
-  const isSubmitting = navigation.state === 'submitting'
-
-  return (
-    <Form method='post' style={{ marginBottom: 24 }}>
-      <input type='hidden' name='intent' value='create' />
-      <div>
-        <input name='title' placeholder='标题' required disabled={isSubmitting} />
-      </div>
-      <div>
-        <textarea name='content' placeholder='内容' required disabled={isSubmitting} />
-      </div>
-      <button type='submit' disabled={isSubmitting}>
-        {isSubmitting ? '发布中…' : '发布并跳转详情'}
-      </button>
-    </Form>
-  )
-}
-
-// ---------- 用 useFetcher：点赞 / 行内编辑 / 删除 ----------
-function PostRow({ post }: { post: Post }) {
+// 用 useFetcher：点赞 / 行内编辑 / 删除，均不跳转
+export default function PostRow({ post }: { post: Post }) {
   const likeFetcher = useFetcher()
   const editFetcher = useFetcher()
   const deleteFetcher = useFetcher()

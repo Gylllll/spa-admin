@@ -8,7 +8,7 @@ import { defineConfig, globalIgnores } from 'eslint/config'
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 export default defineConfig([
-  globalIgnores(['dist', 'package.json', 'package-lock.json']),
+  globalIgnores(['dist', '.history', 'package.json', 'package-lock.json']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
